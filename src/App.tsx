@@ -4,16 +4,22 @@ import './App.css';
 
 function App() {
   const [word, setWord] = useState("")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
   return (
     <div className="App">
       
       <form>
         <label htmlFor='word-input'>Your Word</label>
         <input 
+          onSubmit={handleSubmit}
+          value={word}
           id='word-input'
           onChange={(e) => setWord(e.target.value)}
-        
         ></input>
+        <button>Submit</button>
       </form>
     </div>
   );
