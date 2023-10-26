@@ -7,6 +7,7 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    fetch(`https://api.datamuse.com/words?rel_syn=fast`)
   };
   return (
     <div className="App">
