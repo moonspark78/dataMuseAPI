@@ -14,7 +14,7 @@ function App() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    fetch(`https://api.datamuse.com/words?rel_syn=fast`)
+    fetch(`https://api.datamuse.com/words?rel_syn=${word}`)
       .then((res) => res.json())
       .then(setSynonyms)
   };
@@ -30,11 +30,13 @@ function App() {
         ></input>
         <button>Submit</button>
       </form>
+      <ul>
       {
-        synonyms.map((synonym) => <li>
+        synonyms.map((synonym) => <li key={synonym.word}>
         {synonym.word}
         </li>)
       }
+      </ul>
     </div>
   );
 }
